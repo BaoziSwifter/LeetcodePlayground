@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<playground version='6.0' target-platform='ios' display-mode='raw' buildActiveScheme='true'>
+    <pages>
+        <page name='leetcode Top 100'/>
+        <page name='滑动窗口'/>
+        <page name='查找'/>
+        <page name='排序'/>
+        <page name='股票买卖问题'/>
+        <page name='nSum'/>
+    </pages>
+</playground>
