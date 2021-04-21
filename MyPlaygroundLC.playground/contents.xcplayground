@@ -7,5 +7,8 @@
         <page name='排序'/>
         <page name='股票买卖问题'/>
         <page name='nSum'/>
+        <page name='背包问题'/>
+        <page name='链表'/>
+        <page name='二叉树'/>
     </pages>
 </playground>
