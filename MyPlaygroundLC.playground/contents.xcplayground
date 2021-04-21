@@ -10,5 +10,6 @@
         <page name='背包问题'/>
         <page name='链表'/>
         <page name='二叉树'/>
+        <page name='二叉搜索树'/>
     </pages>
 </playground>
