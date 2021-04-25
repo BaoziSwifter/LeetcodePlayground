@@ -32,12 +32,12 @@ class MyLinkNode {
 
     // 翻转整个链表 非递归
     func norecursion_reverseList(_ head: ListNode?) -> ListNode? {
-        var head = head, pre:ListNode? = nil
-        while head != nil {
-            let t = head?.next
-            head?.next = pre
-            pre = head
-            head = t
+        var h = head, pre:ListNode? = nil
+        while h != nil {
+            let t = h?.next
+            h?.next = pre
+            pre = h
+            h = t
         }
         return pre
     }

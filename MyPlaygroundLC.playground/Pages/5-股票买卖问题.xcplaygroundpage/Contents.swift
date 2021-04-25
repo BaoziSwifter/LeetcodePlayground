@@ -73,7 +73,7 @@ class SellBuySock {
     // k = 1
     func maxProfit_k_1_0(prices :[Int]) -> Int {
         let n = prices.count
-        var last = 0, cur = Int.max
+        var last = 0, cur = Int.min
         for i in 0..<n {
             last = max(last, cur + prices[i])
             cur = max(cur, -prices[i])

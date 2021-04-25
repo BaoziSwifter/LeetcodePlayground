@@ -115,4 +115,101 @@ class TreeNodeSolution {
     // TODO 利用前序和中序构造出树  or 利用中序和后序构造出树
 }
 
+// 遍历
+class TraveralTree {
+    // 前序
+    func preOrderTraveral(_ root: TreeNode?) -> [TreeNode]? {
+        if root == nil {
+            return nil
+        }
+        var arr = [TreeNode]()
+        var res = [TreeNode]()
+        arr.append(root!)
+        while arr.isEmpty == false {
+            let item = arr.removeLast()
+            res.append(item)
+            if let r = item.right {
+                arr.append(r)
+            }
+            if let l = item.left {
+                arr.append(l)
+            }
+        }
+        return res
+    }
+
+    // 后续
+    func postOrderTraveral(_ root: TreeNode?) -> [TreeNode]? {
+        if root == nil {
+            return nil
+        }
+        var arr = [TreeNode]()
+        var res = [TreeNode]()
+        arr.append(root!)
+        while arr.isEmpty == false {
+            let item = arr.removeLast()
+            res.append(item)
+
+            if let l = item.left {
+                arr.append(l)
+            }
+            if let r = item.right {
+                arr.append(r)
+            }
+
+        }
+        return res.reversed()
+    }
+
+    // 中序
+    func midOrderTraveral(_ root: TreeNode?) -> [TreeNode]? {
+        if root == nil {
+            return nil
+        }
+        var arr = [TreeNode]()
+        var res = [TreeNode]()
+        var node = root
+        while !arr.isEmpty || node != nil {
+            if node != nil {
+                while node != nil {
+                    arr.append(node!)
+                    node = node?.left
+                }
+            } else {
+                node = arr.removeLast()
+                res.append(node!)
+                node = node?.right
+            }
+
+        }
+        return res
+
+    }
+
+    // 层序
+    func levelTraveral(_ root: TreeNode?) -> [TreeNode]? {
+        if root == nil {
+            return nil
+        }
+        var levelArray = [TreeNode]()
+        var res = [TreeNode]()
+        levelArray.append(root!)
+
+        while !levelArray.isEmpty {
+            var l = [TreeNode]()
+            for n in levelArray {
+                res.append(n)
+                if let left = n.left {
+                    l.append(left)
+                }
+                if let right = n.right {
+                    l.append(right)
+                }
+            }
+            levelArray = l
+
+        }
+        return res
+    }
+}
 //: [Next](@next)

@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <playground version='6.0' target-platform='ios' display-mode='raw' buildActiveScheme='true'>
     <pages>
-        <page name='leetcode Top 100'/>
-        <page name='滑动窗口'/>
-        <page name='查找'/>
-        <page name='排序'/>
-        <page name='股票买卖问题'/>
-        <page name='nSum'/>
-        <page name='背包问题'/>
-        <page name='链表'/>
-        <page name='二叉树'/>
-        <page name='二叉搜索树'/>
+        <page name='1-leetcode Top 100'/>
+        <page name='4-滑动窗口'/>
+        <page name='2-查找'/>
+        <page name='3-排序'/>
+        <page name='5-股票买卖问题'/>
+        <page name='6-nSum'/>
+        <page name='7-背包问题'/>
+        <page name='8-链表'/>
+        <page name='9-二叉树'/>
+        <page name='10-二叉搜索树'/>
+        <page name='hot'/>
     </pages>
 </playground>
