@@ -138,7 +138,73 @@ class MyLinkNode {
     }
 
     // 判断 是否回文链表 双指针
-    // TODO 
+    func two_pointer_isPalindrome(_ head: ListNode?) -> Bool {
+        var fast = head, slow = head
+        while fast != nil && fast!.next != nil {
+            slow = slow?.next
+            fast = fast?.next?.next
+        }
+        if let _ = fast {
+            slow = slow?.next
+        }
+        var left = head
+        // 翻转链表
+        var right = norecursion_reverseList(slow)
+        while right != nil {
+            if left?.val != right?.val {
+                return false
+            }
+            left = left?.next
+            right = right?.next
+        }
+        
+        return true
+    }
+    
+    // 删除倒数第N个节点
+    // 双指针法
+    func removeNNode(_ head: ListNode?, _ n :Int) -> ListNode? {
+        let dumyNode = ListNode(v:1)
+        dumyNode.next = head
+        var left:ListNode? = dumyNode, right:ListNode? = dumyNode
+        var i = 0
+        while i < n {
+            i += 1
+            right = right?.next
+        }
+        while right != nil {
+            left = left?.next
+            right = right?.next
+        }
+        left?.next = left?.next?.next
+        
+        return dumyNode.next
+    }
+    // 计数法
+    func removeNNode_2(_ head: ListNode?, _ n: Int) -> ListNode? {
+        var count = 0
+        var tmp = head
+        while tmp != nil {
+            tmp = tmp?.next
+            count += 1
+        }
+        if count < n {
+            return head
+        }
+        let step = count - n - 1
+        let dumyNode = ListNode(v: 1)
+        dumyNode.next = head
+        var start: ListNode? = dumyNode
+        var t = 0
+        while t <= step {
+            t += 1
+            start = start?.next
+            
+        }
+        start?.next = start?.next?.next
+        return dumyNode.next
+        
+    }
 
 }
 
