@@ -344,4 +344,86 @@ func removeNthFromEnd(_ head: ListNode?, n :Int) -> ListNode? {
     return dumy.next
 }
 
+
+
+
+// leetcode 232 用栈实现队列
+class Soulution_232 {
+    class MyQueue {
+        var inStack:[Int]
+        var outStack:[Int]
+        /** Initialize your data structure here. */
+        init() {
+            inStack = [Int]()
+            outStack = [Int]()
+        }
+        
+        func move(_ toOut:Bool = true) {
+            if toOut ==  true {
+                while !inStack.isEmpty {
+                    outStack.append(inStack.popLast()!)
+                }
+            } else {
+                while !outStack.isEmpty {
+                    inStack.append(outStack.popLast()!)
+                }
+            }
+        }
+        
+        /** Push element x to the back of queue. */
+        func push(_ x: Int) {
+            if !outStack.isEmpty {
+                move(false)
+            }
+            inStack.append(x)
+        }
+        
+        /** Removes the element from in front of queue and returns that element. */
+        func pop() -> Int {
+            if !inStack.isEmpty {
+                move()
+            }
+            return outStack.popLast() ?? -1
+        }
+        
+        /** Get the front element. */
+        func peek() -> Int {
+            if !inStack.isEmpty {
+                move()
+            }
+            return outStack.last ?? -1
+        }
+        
+        /** Returns whether the queue is empty. */
+        func empty() -> Bool {
+            return inStack.isEmpty && outStack.isEmpty
+        }
+    }
+
+    /**
+     * Your MyQueue object will be instantiated and called as such:
+     * let obj = MyQueue()
+     * obj.push(x)
+     * let ret_2: Int = obj.pop()
+     * let ret_3: Int = obj.peek()
+     * let ret_4: Bool = obj.empty()
+     */
+}
+
+// leetcode offer 09 两个栈实现队列
+extension Soulution_232.MyQueue {
+    func appendTail(_ value: Int) {
+        self.push(value)
+       }
+       
+       func deleteHead() -> Int {
+        self.move()
+        return self.outStack.popLast() ?? -1
+       }
+}
+
+
+
+
+
 //: [Next](@next)

@@ -18,67 +18,43 @@ public class ListNode:Equatable {
 
 class MyLinkNode {
 
-    // 翻转整个链表 递归
-    func recursion_reverseList(_ head: ListNode?) -> ListNode? {
-
-        if head?.next == nil {
-            return head
-        }
-        let last = recursion_reverseList(head?.next)
-        head?.next?.next = head
-        head?.next = nil
-        return last
-    }
-
-    // 翻转整个链表 非递归
-    func norecursion_reverseList(_ head: ListNode?) -> ListNode? {
-        var h = head, pre:ListNode? = nil
-        while h != nil {
-            let t = h?.next
-            h?.next = pre
-            pre = h
-            h = t
-        }
-        return pre
-    }
-
-    // 翻转前n个节点 递归
-    var passNode: ListNode? = nil
-    func recursion_reverseN(_ head: ListNode?, n: Int) -> ListNode? {
-        // base case 变为 n == 1，反转一个元素，就是它本身，同时要记录后驱节点。
-        if n == 1 {
-            passNode = head?.next
-            return head
-        }
-        let lastNode = recursion_reverseN(head?.next, n: n-1)
-        head?.next?.next = head
-        head?.next = passNode
-        return lastNode
-    }
-
-    // 翻转前n个链表 非递归
-    func norecursion_reverseN(_ head: ListNode?, n: Int) -> ListNode? {
-        if n < 2 {
-            return head
-        }
-        var i = 0
-        var head = head, pre: ListNode? = nil
-        let first = head
-        while i < n {
-            let t = head?.next
-            head?.next = pre
-            pre = head
-            head = t
-            i += 1
-        }
-        first?.next = head
-        return pre
-
-    }
+//    // 翻转前n个节点 递归
+//    var passNode: ListNode? = nil
+//    func recursion_reverseN(_ head: ListNode?, n: Int) -> ListNode? {
+//        // base case 变为 n == 1，反转一个元素，就是它本身，同时要记录后驱节点。
+//        if n == 1 {
+//            passNode = head?.next
+//            return head
+//        }
+//        let lastNode = recursion_reverseN(head?.next, n: n-1)
+//        head?.next?.next = head
+//        head?.next = passNode
+//        return lastNode
+//    }
+//
+//    // 翻转前n个链表 非递归
+//    func norecursion_reverseN(_ head: ListNode?, n: Int) -> ListNode? {
+//        if n < 2 {
+//            return head
+//        }
+//        var i = 0
+//        var head = head, pre: ListNode? = nil
+//        let first = head
+//        while i < n {
+//            let t = head?.next
+//            head?.next = pre
+//            pre = head
+//            head = t
+//            i += 1
+//        }
+//        first?.next = head
+//        return pre
+//
+//    }
     // 反转链表的一部分
     func reverseBetween(_ head: ListNode?, begin: Int, end: Int) -> ListNode? {
         if begin == 1 {
-            return recursion_reverseN(head, n: end)
+//            return recursion_reverseN(head, n: end)
         }
         let head = head
         head?.next = reverseBetween(head?.next, begin: begin-1, end: end-1)
